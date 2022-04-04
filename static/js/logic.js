@@ -42,6 +42,7 @@ d3.json(link).then(function(data) {
                 radius: chooseRadius(feature.properties.mag),
                 fillColor: chooseColor(feature.geometry.coordinates[2]),
                 color: "black",
+                weight: 0.5,
             };
         },
         onEachFeature: (feature, layer) => {
