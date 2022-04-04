@@ -44,5 +44,8 @@ d3.json(link).then(function(data) {
                 color: "black",
             };
         },
+        onEachFeature: (feature, layer) => {
+            layer.bindPopup(`<h3> ${feature.properties.title} </h3> <hr> <h5> Magnitude: ${feature.properties.mag} </h5> <h5> Depth: ${feature.geometry.coordinates[2]} km <p> ${feature.properties.url} </p>`);
+        },
     }).addTo(map);
 });
