@@ -23,7 +23,7 @@ function chooseRadius(magnitude) {
 function chooseColor (depth) {
     if (depth > 300) return "red";
     else if (depth >= 70) return "yellow";
-    else return "green";
+    else if (depth < 70) return "green";
 };
 
 //Link for GeoJSON data
@@ -50,3 +50,24 @@ d3.json(link).then(function(data) {
         },
     }).addTo(map);
 });
+
+//Setting up legend
+let legend = L.control({position: "bottomright"});
+legend.onAdd = function() {
+    let div = L.DomUtil.create("div", "info legend");
+    labels = ['<strong>Earthquake Depth</strong>'],
+    categories = ['> 300 km', '70-300 km', '< 70 km'];
+
+for (var i = 0; i < categories.length; i++) {
+
+    div.innerHTML += 
+    labels.push(
+        '<i class="circle" style="background:' + chooseColor(categories[i]) + '"></i> ' +
+    (categories[i] ? categories[i] : '+'));
+    }
+    div.innerHTML = labels.join('<br>');
+return div;
+};
+
+//Adding legend to the map
+legend.addTo(map);
