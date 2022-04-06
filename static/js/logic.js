@@ -56,6 +56,7 @@ let legend = L.control({position: "bottomright"});
 legend.onAdd = function() {
     let div = L.DomUtil.create("div", "info legend");
     labels = ['<strong>Earthquake Depth</strong>'],
+    colors = ["red", "yellow", "green"];
     categories = ['> 300 km', '70-300 km', '< 70 km'];
 
 for (var i = 0; i < categories.length; i++) {
@@ -71,3 +72,5 @@ return div;
 
 //Adding legend to the map
 legend.addTo(map);
+
+// colors[i]
