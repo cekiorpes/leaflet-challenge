@@ -60,22 +60,8 @@ legend.onAdd = function() {
     div.innerHTML += '<i class="circle" style = "background:yellow"></i><span>Intermediate (70-300 km)</span></br>';
     div.innerHTML += '<i class="circle" style = "background:green"></i><span>Shallow (< 70 km)</span></br>';
     
-//     labels = ['<strong>Earthquake Depth</strong>'],
-//     colors = ["red", "yellow", "green"];
-//     categories = ['Deep (> 300 km)', 'Intermediate (70-300 km)', 'Shallow (< 70 km)'];
-
-// for (var i = 0; i < categories.length; i++) {
-
-//     div.innerHTML += 
-//     labels.push(
-//         '<i class="circle" style="background:' + (colors[i]) + '"></i> ' +
-//     (categories[i] ? categories[i] : '+'));
-//     }
-//     div.innerHTML = labels.join('<br>');
 return div;
 };
 
 //Adding legend to the map
 legend.addTo(map);
-
-// colors[i]
