@@ -55,18 +55,23 @@ d3.json(link).then(function(data) {
 let legend = L.control({position: "bottomright"});
 legend.onAdd = function() {
     let div = L.DomUtil.create("div", "info legend");
-    labels = ['<strong>Earthquake Depth</strong>'],
-    colors = ["red", "yellow", "green"];
-    categories = ['> 300 km', '70-300 km', '< 70 km'];
+    div.innerHTML += '<strong>Earthquake Depth</strong></br>';
+    div.innerHTML += '<i class="circle" style = "background:red"></i><span>Deep (> 300 km)</span></br>';
+    div.innerHTML += '<i class="circle" style = "background:yellow"></i><span>Intermediate (70-300 km)</span></br>';
+    div.innerHTML += '<i class="circle" style = "background:green"></i><span>Shallow (< 70 km)</span></br>';
+    
+//     labels = ['<strong>Earthquake Depth</strong>'],
+//     colors = ["red", "yellow", "green"];
+//     categories = ['Deep (> 300 km)', 'Intermediate (70-300 km)', 'Shallow (< 70 km)'];
 
-for (var i = 0; i < categories.length; i++) {
+// for (var i = 0; i < categories.length; i++) {
 
-    div.innerHTML += 
-    labels.push(
-        '<i class="circle" style="background:' + chooseColor(categories[i]) + '"></i> ' +
-    (categories[i] ? categories[i] : '+'));
-    }
-    div.innerHTML = labels.join('<br>');
+//     div.innerHTML += 
+//     labels.push(
+//         '<i class="circle" style="background:' + (colors[i]) + '"></i> ' +
+//     (categories[i] ? categories[i] : '+'));
+//     }
+//     div.innerHTML = labels.join('<br>');
 return div;
 };
 
